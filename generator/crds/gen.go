@@ -41,9 +41,10 @@ func (Generator) RegisterMarkers(into *markers.Registry) error {
 // Generate generates the artifacts
 func (g Generator) Generate(ctx *genall.GenerationContext) error {
 	parser := &crd.Parser{
-		Collector:           ctx.Collector,
-		Checker:             ctx.Checker,
-		AllowDangerousTypes: false,
+		Collector:                  ctx.Collector,
+		Checker:                    ctx.Checker,
+		AllowDangerousTypes:        false,
+		GenerateEmbeddedObjectMeta: true,
 	}
 
 	crd.AddKnownTypes(parser)
